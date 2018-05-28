@@ -18,7 +18,7 @@ list_genres=Tags.drop_duplicates(subset=['tag_name'],keep='first')
 
 
 #get the book details corresponding to author whose name is as given Suzanne Collins1, Stephenie Meyer0,John Green2
-author="F. Scott Fitzgerald"
+author="J.K. Rowling"
 author_books=book_details.loc[book_details['authors'] ==author]
 
 #get the book id's who has average rating less than 4 within that bookids
@@ -58,6 +58,7 @@ if low_rated_books.shape[0]>0:
             flag=flag+1
             if flag==5:
                 break
+    print(max_rated)
 else:
     print("Congrats!!You have all your books rated above 4")
 
