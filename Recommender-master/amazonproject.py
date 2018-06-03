@@ -3,6 +3,9 @@ book_details=pd.read_csv('books.csv')
 book_tags=pd.read_csv('book_tags.csv')
 tag_details=pd.read_csv('tag.csv')
 
+def isAscii(string):
+    return reduce(operator.and_,[ord(x)<256 for x in string],True)
+tag_details=tag_details[tag_details.tag_name.apply(lambda x: isAscii(x))]
 
 book_details=book_details.dropna(how='any')
 book_tags=book_tags.loc[book_tags['goodreads_book_id'].isin(book_details['book_id'])]
